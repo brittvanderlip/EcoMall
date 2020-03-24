@@ -1,0 +1,125 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: "Montserrat";
+  text-align: center;
+  color: pink;
+}
+
+.nav a{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-decoration: none;
+  color: #000000;
+  font-family: "Montserrat";
+  font-size: 15px;
+  padding-right: 30px;
+  color: gray;
+  }
+
+.container{
+  font-family: "Montserrat";
+  text-align: center;
+  color: #000;
+}
+
+#box1 {
+  color: #000;
+  margin: 0;
+  padding: 0;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+#box2 {
+  color: #000;
+  margin: 0;
+  padding: 0;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+#box3 {
+  color: #000;
+  margin: 0;
+  padding: 0;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+#box4 {
+  color: #000;
+  margin: 0;
+  padding: 0;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+  text-align: center;
+}
+#boxdrag {
+  color: #000;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  text-align: center;
+}
+#box5 {
+  color: #000;
+  padding: 0;
+
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  text-align: center;
+}
+footer{
+  text-align: center;
+  color: gray;
+}
