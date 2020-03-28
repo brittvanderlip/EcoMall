@@ -4,8 +4,9 @@ if (isset($_POST['login-submit'])) {
   require 'dbh.inc.php';
 
   //Retrieve information from user's input
-  $mailuid = $_POST['emailusername'];
-  $password = $_POST['password'];
+  //mysqli_real_escape_string() function ensures that the DB reads input as code and not text (sql injection protection)
+  $mailuid = mysqli_real_escape_string($conn, $_POST['mailuid']);
+  $password = mysqli_real_escape_string($conn, $_POST['pwd']);
 
   //If empty
   if (empty($mailuid) || empty($password)) {
@@ -14,7 +15,7 @@ if (isset($_POST['login-submit'])) {
   }
   else {
     //Select all entries from users with the inputted username and email
-    $sql = "SELECT * FROM users WHERE usernameUsers=? OR emailUsers=?;";
+    $sql = "SELECT * FROM users WHERE uidUsers=? OR emailUsers=?;";
     //Initialize a new statement
     $stmt = mysqli_stmt_init($conn);
     //run sql statement and check if it works inside the DB
@@ -32,7 +33,7 @@ if (isset($_POST['login-submit'])) {
         //If username exists, retrieve password and hash it and check if the two passwords match up
         $pwdCheck = password_verify($password, $row['pwdUsers']);
         if ($pwdCheck == false) {
-          header("Location: ../index2.php?error=wrongpwd");
+          header("Location: index2.php?error=wrongpwd");
           exit();
         }
         //if password matches username
@@ -40,14 +41,14 @@ if (isset($_POST['login-submit'])) {
           session_start();
           //session variables to see if the user if logged in or not
           $_SESSION['id'] = $row['idUsers'];
-          $_SESSION['username'] = $row['usernameUsers'];
+          $_SESSION['uid'] = $row['uidUsers'];
           $_SESSION['email'] = $row['emailUsers'];
-          header("Location: ../index2.php?login=success");
+          header("Location: index2.php?login=success");
           exit();
         }
       }
       else {
-        header("Location: ../index2.php?login=wronguidpwd");
+        header("Location: index2.php?login=wronguidpwd");
         exit();
       }
     }
@@ -58,6 +59,6 @@ if (isset($_POST['login-submit'])) {
 }
 else {
   //If user accesses this page through url then send them back
-  header("Location: ../signup.php");
+  header("Location: signup.php");
   exit();
 }

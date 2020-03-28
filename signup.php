@@ -10,21 +10,34 @@
     <meta name=viewport content="width=device-width, initial-scale=1">
     <title></title>
     <link rel="stylesheet" href="loginSignup.css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/dfd3ed979b.js" crossorigin="anonymous"></script>
   </head>
   <body>
 
-    <header>
-      <h1>Signup</h1>
-      <div>
-        <nav class="nav-header-main signup">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="loginHeader.php">Login/SignUp</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="cart.html">Shopping Bag</a></li>
-          </ul>
+ <div class="container">
+        <h1>Eco Mall</h1>
+        <div class="nav">
+          <nav>
+            <table align = "center">
+              <tr>
+                <td><a href="index.html">Home</a></td>
+                <td><a href="loginHeader.php">Login</a></td>
+                <td><a href="signup.php">Sign Up</a></td>
+                <td><a href="index.html">About</a></td>
+                <td><a href="shop.php">Products</a></td>
+                <td><a href="contact.php">Contact Us</a></td>
+                <td><a href="reviews-all.php">Reviews</a></td>
+                <td><a href="reviews-myreviews.php">My Reviews</a></td>
+              </td>
+              </tr>
+            </table>
+          </nav>
+        </div>
       </div>
-    </header>
     <main>
       <div class="wrapper-main">
         <section class="section-default">
@@ -57,28 +70,28 @@
             }
           }
           ?>
-          <form class="form-signup" action="Includes/signup.inc.php" method="post">
+          <form class="form-signup" action="signup.inc.php" method="post">
             <?php
 
             //If username is empty
             if (!empty($_GET["uid"])) {
-              echo '<input type="text" name="username" placeholder="Username" value="'.$_GET["uid"].'">';
+              echo '<input type="text" name="uid" placeholder="Username" value="'.$_GET["uid"].'">';
             }
             else {
-              echo '<input type="text" name="username" placeholder="Username">';
+              echo '<input type="text" name="uid" placeholder="Username">';
             }
 
             //if email is emty
             if (!empty($_GET["mail"])) {
-              echo '<input type="text" name="email" placeholder="E-mail" value="'.$_GET["mail"].'">';
+              echo '<input type="text" name="mail" placeholder="E-mail" value="'.$_GET["mail"].'">';
             }
             else {
-              echo '<input type="text" name="email" placeholder="E-mail">';
+              echo '<input type="text" name="mail" placeholder="E-mail">';
             }
             ?>
-            <input type="password" name="password" placeholder="Password">
-            <input type="password" name="password-repeat" placeholder="Repeat password">
-            <button type="submit" name="signup-submit">Signup</button>
+            <input type="password" name="pwd" placeholder="Password">
+            <input type="password" name="pwd-repeat" placeholder="Repeat password">
+            <button type="submit" name="signup-submit" class = "banner-btn">Signup</button>
           </form>
         </section>
       </div>

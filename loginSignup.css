@@ -7,6 +7,7 @@
 ::after {
   box-sizing: inherit;
 }
+
 .container {
   max-width: 1500px;
   margin: 0 auto;
@@ -16,43 +17,54 @@ h1 {
   font-family: "Montserrat";
   text-align: center;
   color: pink;
+  font-size: 40px;
 }
 
-
-.nav-header-main {
-  height: 80%;
-  text-align: center;
-}
-
-.nav-header-main ul {
-  height: 100%;
-}
-
-.nav-header-main ul li {
-  list-style: none;
-  display: inline-block;
-  text-align: center;
-  height: 100%;
-}
-
-.nav-header-main ul li a {
-  display: inline;
-  text-align: center;
-  height: 100%;
-  padding: 0 10px;
-  border-radius: 6px;
-  line-height: 48px;
+.nav a{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-decoration: none;
+  color: #000000;
   font-family: "Montserrat";
-  font-size: 16px;
+  font-size: 15px;
+  padding-right: 30px;
   color: gray;
-  text-transform: uppercase;
+  }
+
+.navbar-center {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
 }
 
-
-
-#headerImg{
-  max-width: 100%;
-  display: block;
+ table{
+padding: 10px;
+ }
+.banner-btn {
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  background: pink;
+  color: white;
+  border: 1px solid pink;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.banner-btn:hover {
+  background: transparent;
+  color: pink;
+}
+.header-login {
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .midsection {
@@ -61,14 +73,9 @@ h1 {
   text-align: center;
 }
 
-main {
-  flex: 1 1 none;
-  color: #000;
-  border-radius: 0.5em;
-  padding: 0.25ex 1em 0.25ex 1em;
-}
 
 .header-login {
+  top: 80%;
   height: 60%;
   display: flex;
   flex-direction: row;
@@ -85,21 +92,21 @@ p {
 }
 
 .header-login form input {
-  height: 100%;
-  width: 160px;
+  width: calc(100% - 30px);
+  height: 30px;
   padding: 0 15px;
+  margin-bottom: 6px;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  background-color: pink;
+  color: gray;
   float: left;
-  margin-left: 8px;
   font-family: "Montserrat";
 }
 
-.header-login form button {
-  margin-left: 8px;
-  font-family: "Montserrat";
-  font-size: 13px;
-  color: #000;
-  text-transform: uppercase;
-  text-align: center;
+
+.header-login form button:hover{
+  cursor: pointer;
 }
 
 .header-login a{
@@ -107,31 +114,15 @@ p {
   font-family: "Montserrat";
   font-size: 13px;
   border-style: solid;
-  color: #000;
+  color: white;
   text-transform: uppercase;
   text-align: center;
 }
+
 
 .signup-button{
-  flex: none;
-}
-
-.header-signup {
-  height: 100%;
-  width: 70px;
-  padding: 0 6px;
-  border: none;
-  border-radius: 4px;
-  margin-left: 8px;
-  font-family: arial;
-  font-size: 13px;
-  line-height: 36px;
-  text-transform: uppercase;
-  text-align: center;
-  color: gray;
-  text-decoration: none;
-}
-
+    display: inline-block;
+ }
 
 
 .login-status {
@@ -152,8 +143,16 @@ p {
   height: 30px;
   padding: 0 15px;
   margin-bottom: 6px;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  background-color: pink;
+  color: gray;
   float: left;
   font-family: "Montserrat";
+}
+
+.form-signup button:hover{
+  cursor: pointer;
 }
 
 footer{
