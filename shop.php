@@ -2,7 +2,6 @@
   session_start();
   require "dbh.inc.php";
 ?>
-<!DOCTYPE html>
 <html>
   <head>
     <title>Shop</title>
@@ -14,72 +13,83 @@
 
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/dfd3ed979b.js" crossorigin="anonymous"></script>
-    <!--Javascript-->
-    <script src="ecoMall.js" type="application/javascript"></script>
   </head>
   <body>
       <div class="container">
         <h1>Eco Mall</h1>
-
-        <?php
+        <div class="nav">
+          <nav>
+            <table align = "center">
+              <tr>
+                <td><a href="index.html">Home</a></td>
+                <td><a href="loginHeader.php">Logout</a></td>
+                <td><a href="signup.php">Signup</a></td>
+                <td><a href="index.html">About</a></td>
+                <td><a href="shop.php">Products</a></td>
+                <td><a href="contact.php">Contact Us</a></td>
+                <td><a href="reviews-all.php">Reviews</a></td>
+                <td><a href="reviews-myreviews.php">My Reviews</a></td>
+                <!-- this is for the cart button-->
+                <td><nav class="navbar">
+                  <div class="navbar-center">
+                  <div class="cart-btn">
+                    <span class = "navbar">
+                    <i class = "fas fa-cart-plus"></i>
+                  </span>
+                  <div class="cart-items">0</div>
+                </div>
+              </div>
+                </nav>
+                <!--End of cart button-->
+              </td>
+              </tr>
+            </table>
+          </nav>
+        </div>
+      </div>
+    <?php
         //If user is not logged in, they cannot access the shop
         if (!isset($_SESSION['id'])) {
-          echo '<h3>Login to access shop</h3>
-                <a href="loginHeader.php">Login Now</a>';
+          echo '
+          <div class="no-access">
+          <h3>Oops! Looks like you are not logged in.</h3>
+          <h3>Please log in to enjoy shopping our eco-friendly collection!</h3>
+                <a href="loginHeader.php"><button class = "login banner-btn">Login Now</button></a>
+          </div>';
         }
-        //If user is logged in, they can access the shop
-        else if (isset($_SESSION['id'])) {
-          echo '<div class="nav">
-            <nav>
-              <table align = "center">
-                <tr>
-                  <td><a href="loginHeader.php">Login/SignUp</a></td>
-                  <td><a href="index.html">About</a></td>
-                  <td><a href="shop.html">SHOP!</a></td>
-                  <td><a href="contact.html">Contact Us</a></td>
-                  <td><a href="cart.html">Shopping Bag</a></td>
-                </tr>
-              </table>
-            </nav>
-            <form action="logout.inc.php" method="post">
-              <button type="submit" name="login-submit">Logout</button>
-            </form>
+        else {echo'
+        <!-- products -->
+        <section class="products">
+          <div class="products-center">
           </div>
-
-      <div class="container">
-        <div id="box1">
-          <h3>Boxed Water</h3>
-          <img id="boxedWater img" src="boxed-water.jpg" alt="Water Bottle">
-          <p>$5.00</p>
+        </section>
+        <!-- end of products -->
+        <!-- cart -->
+        <div class="cart-overlay">
+          <div class="cart">
+            <span class="close-cart"><i class="far fa-window-close"></i></span>
+            <h2>your cart</h2>
+            <div class="cart-content">
+            </div>
+            <div class="cart-footer">
+              <h3>your total : $<span class="cart-total">0</span></h3>
+              <table>
+                  <tr>
+                      <td>
+                        <button class="clear-cart banner-btn">clear cart</button>
+                      </td>
+                      <td>
+                        <button class="place-order banner-btn">place order</button>
+                      </td>
+                  </tr>
+              </table>
+            </div>
+          </div>
         </div>
-        <div id="box2">
-          <h3>Wooden Cutlery</h3>
-          <img id="woodenCutlery img"src="wooden-cutlery.jpg" alt="Wooden Cutlery">
-          <p>$15.00</p>
-
-        </div>
-        <div id="box3">
-          <h3>Reuseable Coffee Capsules</h3>
-          <img id="reuseablePods img" src="reuseable-pods.jpg" alt="Reuseable Coffee Capsules">
-          <p>$16.00</p>
-
-        </div>
-        <div id="box4">
-          <h3>Eco Soap</h3>
-          <img id="soap img"src="soap.jpg" alt="Eco Soap">
-          <p>$8.00</p>
-
-        </div>
-        <div id="boxdrag">
-          <i class="fas fa-cart-arrow-down fa-6x"></i>
-          <h4>Drag Below</h4>
-        </div>
-        <div id="box5">
-          <h3>Drop Here</h3>
-        </div>
-        </div>';
-        }
+        <!-- end of cart -->
+        <!--  javascript -->
+        <script src="shop.js"></script>
+        ';}
         ?>
-    </div>
   </body>
 </html>
