@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require "dbh.inc.php";
+  require "Includes/dbh.inc.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +40,7 @@
       <?php
         //if we don't have the session variables set in the website then the user is logged in
         if (!isset($_SESSION['id'])) {
-          echo '<form action="login.inc.php" method="post">';
+          echo '<form action="Includes/login.inc.php" method="post">';
 
           if (!empty($_GET["mailuid"])) {
             echo '<input type="text" name="mailuid" placeholder="E-mail/Username" value="'.$_GET["mailuid"].'">';
@@ -80,7 +80,7 @@
           <table align = "center">
           <tr align ="center">
           <td>
-          <form action="logout.inc.php" method="post">
+          <form action="Includes/logout.inc.php" method="post">
           </td>
           </tr>
           <tr align ="center">
@@ -96,7 +96,7 @@
             <table align = "center">
             <tr align ="center">
             <td>
-            <form action="adminPanel.php" method="post">
+            <form action="Includes/adminPanel.inc.php" method="post">
             </td>
             </tr>
             <tr align ="center">

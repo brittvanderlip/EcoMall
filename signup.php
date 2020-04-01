@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require "dbh.inc.php";
+  require "Includes/dbh.inc.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,7 +70,7 @@
             }
           }
           ?>
-          <form class="form-signup" action="signup.inc.php" method="post">
+          <form class="form-signup" action="Includes/signup.inc.php" method="post">
             <?php
 
             //If username is empty
